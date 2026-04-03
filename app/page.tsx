@@ -1,35 +1,87 @@
+import katex from "katex";
+import "katex/dist/katex.min.css";
+
 const githubHref = "https://github.com/samyakj5";
 const linkedinHref = "https://www.linkedin.com/in/samyak-jain-uiuc/";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white px-6">
-      <div className="-translate-y-8 flex flex-col items-center gap-5 text-black">
-        <p className="[font-family:var(--font-display)] text-[14pt] tracking-[-0.02em]">
-          samyak jain
-        </p>
-        <div className="flex items-center gap-4">
-          <a
-            href={githubHref}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="transition-opacity duration-200 hover:opacity-60 focus-visible:opacity-60 focus-visible:outline-none"
-          >
-            <GitHubIcon />
-          </a>
-          <a
-            href={linkedinHref}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="transition-opacity duration-200 hover:opacity-60 focus-visible:opacity-60 focus-visible:outline-none"
-          >
-            <LinkedInIcon />
-          </a>
+    <main className="relative flex min-h-screen items-center justify-center bg-[#f7f3ea] px-6 [--page-bg:#f7f3ea]">
+      <div className="absolute top-5 flex items-center gap-5 text-black sm:top-6">
+        <a
+          href={githubHref}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub"
+          className="transition-opacity duration-200 hover:opacity-60 focus-visible:opacity-60 focus-visible:outline-none"
+        >
+          <GitHubIcon />
+        </a>
+        <a
+          href={linkedinHref}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn"
+          className="transition-opacity duration-200 hover:opacity-60 focus-visible:opacity-60 focus-visible:outline-none"
+        >
+          <LinkedInIcon />
+        </a>
+      </div>
+
+      <div className="-translate-y-6 flex flex-col items-center gap-2 text-black [font-family:var(--font-display)]">
+        <div className="flex items-center gap-1 text-[14pt] font-light tracking-[-0.02em]">
+          <IdentityFormula
+            symbolClassName="text-black/28"
+            curiousClassName="text-black/45"
+          />
         </div>
+
+        <p className="max-w-xl px-4 text-center text-[10pt] font-light leading-[1.5] tracking-[0.02em] text-black/45">
+          quantum hardware · prev. quantum info, particle physics
+        </p>
       </div>
     </main>
+  );
+}
+
+type MathSymbolProps = {
+  className?: string;
+  latex: string;
+};
+
+type IdentityFormulaProps = {
+  curiousClassName?: string;
+  symbolClassName?: string;
+};
+
+function MathSymbol({ className, latex }: MathSymbolProps) {
+  return (
+    <span
+      className={className}
+      dangerouslySetInnerHTML={{
+        __html: katex.renderToString(latex, {
+          displayMode: false,
+          throwOnError: false,
+        }),
+      }}
+    />
+  );
+}
+
+function IdentityFormula({
+  curiousClassName,
+  symbolClassName,
+}: IdentityFormulaProps) {
+  return (
+    <>
+      <MathSymbol latex={String.raw`\langle`} className={symbolClassName} />
+      <span className="mx-1">samyak jain</span>
+      <MathSymbol latex={String.raw`\mid`} className={symbolClassName} />
+      <span className={`mx-1 ${curiousClassName ?? ""}`.trim()}>
+        curious
+      </span>
+      <MathSymbol latex={String.raw`\rangle`} className={symbolClassName} />
+    </>
   );
 }
 
@@ -37,7 +89,7 @@ function GitHubIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="h-5 w-5"
+      className="h-7 w-7"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +109,7 @@ function LinkedInIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="h-5 w-5"
+      className="h-7 w-7"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
