@@ -1,6 +1,5 @@
-import katex from "katex";
+import { PronounceName } from "@/components/pronounce-name";
 import { SiteHeader } from "@/components/site-header";
-import "katex/dist/katex.min.css";
 
 const githubHref = "https://github.com/samyakj5";
 const linkedinHref = "https://www.linkedin.com/in/samyak-jain-uiuc/";
@@ -12,12 +11,7 @@ export default function Home() {
 
       <section className="relative flex min-h-screen items-center justify-center px-6">
         <div className="z-10 flex flex-col items-center gap-2">
-          <div className="flex items-center gap-1 text-[14pt] font-light tracking-[-0.02em]">
-            <IdentityFormula
-              symbolClassName="text-black/28"
-              curiousClassName="text-black/45"
-            />
-          </div>
+          <PronounceName />
 
           <p className="max-w-xl px-4 text-center text-[10pt] font-light leading-[1.5] tracking-[0.02em] text-black/45">
             quantum hardware · prev. quantum info, particle physics
@@ -46,47 +40,6 @@ export default function Home() {
         </div>
       </section>
     </main>
-  );
-}
-
-type MathSymbolProps = {
-  className?: string;
-  latex: string;
-};
-
-type IdentityFormulaProps = {
-  curiousClassName?: string;
-  symbolClassName?: string;
-};
-
-function MathSymbol({ className, latex }: MathSymbolProps) {
-  return (
-    <span
-      className={className}
-      dangerouslySetInnerHTML={{
-        __html: katex.renderToString(latex, {
-          displayMode: false,
-          throwOnError: false,
-        }),
-      }}
-    />
-  );
-}
-
-function IdentityFormula({
-  curiousClassName,
-  symbolClassName,
-}: IdentityFormulaProps) {
-  return (
-    <>
-      <MathSymbol latex={String.raw`\langle`} className={symbolClassName} />
-      <span className="mx-1">samyak jain</span>
-      <MathSymbol latex={String.raw`\mid`} className={symbolClassName} />
-      <span className={`mx-1 ${curiousClassName ?? ""}`.trim()}>
-        curious
-      </span>
-      <MathSymbol latex={String.raw`\rangle`} className={symbolClassName} />
-    </>
   );
 }
 
