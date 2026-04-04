@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { resumePdfHref } from "@/lib/site-paths";
 
 type NavId = "about" | "projects" | "thoughts" | "resume";
-const resumePdfHref = "/Samyak_Jain_Resume.pdf";
 
 const navItems: Array<{ href: string; id: NavId; label: string }> = [
   { href: "/", id: "about", label: "about" },

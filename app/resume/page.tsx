@@ -1,6 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
-
-const resumePdfHref = "/Samyak_Jain_Resume.pdf";
+import { resumePdfHref } from "@/lib/site-paths";
 
 export default function ResumePage() {
   return (
