@@ -1,59 +1,14 @@
-import Image from "next/image";
 import katex from "katex";
-import entanglementPng from "@/components/entanglement.png";
+import { SiteHeader } from "@/components/site-header";
 import "katex/dist/katex.min.css";
-import psetPng from "@/components/pset.png";
 
 const githubHref = "https://github.com/samyakj5";
 const linkedinHref = "https://www.linkedin.com/in/samyak-jain-uiuc/";
-const projects = [
-  {
-    description:
-      "A clean proof-based writeup for MATH 347H, focused on presenting arguments clearly and compactly.",
-    image: psetPng,
-    imageAlt: "Preview of a MATH 347H homework writeup.",
-    title: "MATH 347H writeup",
-  },
-  {
-    description:
-      "An entanglement-focused PDF rendered into a project preview image for the site.",
-    image: entanglementPng,
-    imageAlt: "Preview image generated from the entanglement PDF.",
-    title: "Entanglement",
-  },
-] as const;
-const coursework = [
-  "quantum information",
-  "particle physics",
-  "measurement systems",
-  "hardware + controls",
-] as const;
 
 export default function Home() {
   return (
     <main className="bg-[#f7f3ea] text-black [--page-bg:#f7f3ea] [font-family:var(--font-display)]">
-      <header className="fixed inset-x-0 top-0 z-50 flex justify-center bg-[#f7f3ea]/88 px-6 py-4 sm:py-5">
-        <div className="flex items-center gap-3 text-[#67625b]">
-          <a
-            href={githubHref}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="inline-flex items-center justify-center p-1 transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none"
-          >
-            <GitHubIcon />
-          </a>
-          <a
-            href={linkedinHref}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="inline-flex items-center justify-center p-1 transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none"
-          >
-            <LinkedInIcon />
-          </a>
-        </div>
-      </header>
+      <SiteHeader active="about" />
 
       <section className="relative flex min-h-screen items-center justify-center px-6">
         <div className="z-10 flex flex-col items-center gap-2">
@@ -67,66 +22,27 @@ export default function Home() {
           <p className="max-w-xl px-4 text-center text-[10pt] font-light leading-[1.5] tracking-[0.02em] text-black/45">
             quantum hardware · prev. quantum info, particle physics
           </p>
-        </div>
-      </section>
 
-      <section
-        id="projects"
-        className="scroll-mt-16 border-t border-black/8 px-6 py-20 sm:py-24"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-[10pt] font-light tracking-[0.22em] text-black/38">
-            projects
-          </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {projects.map((project) => (
-              <article
-                key={project.title}
-                className="flex h-full flex-col gap-4 rounded-[1rem] border border-black/8 bg-white/40 p-4"
-              >
-                <div className="rounded-[0.85rem] border border-black/10 bg-[#efe9dc] p-2">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[0.65rem] bg-white/80">
-                    <Image
-                      fill
-                      src={project.image}
-                      alt={project.imageAlt}
-                      className="object-contain object-top"
-                      sizes="(min-width: 768px) 15rem, 100vw"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h2 className="text-[13pt] font-light tracking-[-0.02em] text-black/78">
-                    {project.title}
-                  </h2>
-                  <p className="mt-3 max-w-2xl text-[10pt] font-light leading-[1.65] tracking-[0.02em] text-black/48">
-                    {project.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+          <div className="mt-3 flex items-center gap-3 text-[#67625b]">
+            <a
+              href={githubHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="inline-flex items-center justify-center p-1 transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none"
+            >
+              <GitHubIcon />
+            </a>
+            <a
+              href={linkedinHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="inline-flex items-center justify-center p-1 transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none"
+            >
+              <LinkedInIcon />
+            </a>
           </div>
-        </div>
-      </section>
-
-      <section
-        id="coursework"
-        className="scroll-mt-16 border-t border-black/8 px-6 py-20 sm:py-24"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-[10pt] font-light tracking-[0.22em] text-black/38">
-            coursework
-          </p>
-          <ul className="mt-8 flex flex-wrap gap-3 text-[10pt] font-light tracking-[0.02em] text-black/52">
-            {coursework.map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-black/10 px-4 py-2"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </main>
