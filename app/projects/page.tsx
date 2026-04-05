@@ -4,14 +4,16 @@ import { SiteHeader } from "@/components/site-header";
 const projects = [
   {
     description:
-      "investigated entanglement decay in noisy quantum circuits, identifying evidence for sudden death across 4–8 qubit systems · Qiskit, NumPy, Matplotlib",
+      "entanglement decay in noisy quantum circuits under depolarizing noise. identified evidence for sudden death in few-qubit systems",
     href: "https://github.com/samyakj5/entanglement-sudden-death",
+    stack: "Qiskit, NumPy, Matplotlib",
     title: "entanglement sudden death simulation",
   },
   {
     description:
-      "customizable problem set template with reusable components for proofwriting and layouts, published to Typst Universe · Typst",
+      "customizable problem set template with reusable components for proofwriting and layouts. published to Typst Universe",
     href: "https://typst.app/universe/package/nova-pset/",
+    stack: "Typst",
     title: "nova-pset",
   },
 ] as const;
@@ -68,15 +70,18 @@ export default function ProjectsPage() {
           <div className="mt-6 space-y-8">
             {projects.map((project) => (
               <article key={project.title}>
-                <h2>
+                <h2 className="text-[13pt] font-light tracking-[-0.02em] text-black/78">
                   <a
                     href={project.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-block border-b border-transparent pb-px text-[13pt] font-light tracking-[-0.02em] text-black/78 transition-[border-color,opacity] duration-200 hover:border-black/30 hover:opacity-65 focus-visible:border-black/30 focus-visible:opacity-65 focus-visible:outline-none"
+                    className="inline-block border-b border-transparent pb-px transition-[border-color,opacity] duration-200 hover:border-black/30 hover:opacity-65 focus-visible:border-black/30 focus-visible:opacity-65 focus-visible:outline-none"
                   >
                     {project.title}
                   </a>
+                  <span className="text-[0.92em] text-black/40">
+                    {" · "}{project.stack}
+                  </span>
                 </h2>
                 <p className="mt-2 max-w-2xl text-[10pt] font-light leading-[1.7] tracking-[0.02em] text-black/48">
                   {project.description}
