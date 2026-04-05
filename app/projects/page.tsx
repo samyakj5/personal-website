@@ -1,23 +1,59 @@
-import Image from "next/image";
-import entanglementPng from "@/components/entanglement.png";
-import psetPng from "@/components/pset.png";
+import type { ReactNode } from "react";
 import { SiteHeader } from "@/components/site-header";
 
 const projects = [
   {
-    description: "problem set template written in Typst, published to Typst Universe",
-    image: psetPng,
-    imageAlt: "preview of a nova-pset.",
-    title: "nova-pset",
+    description:
+      "investigated entanglement decay in noisy quantum circuits, identifying evidence for sudden death across 4–8 qubit systems · Qiskit, NumPy, Matplotlib",
+    href: "https://github.com/samyakj5/entanglement-sudden-death",
+    title: "entanglement sudden death simulation",
   },
   {
     description:
-      "simulation of the sudden death of entanglement written in Python, Qiskit, and matplotlib.",
-    image: entanglementPng,
-    imageAlt: "preview of sudden death writeup.",
-    title: "entanglement sudden death simulation",
+      "customizable problem set template with reusable components for proofwriting and layouts, published to Typst Universe · Typst",
+    href: "https://typst.app/universe/package/nova-pset/",
+    title: "nova-pset",
   },
 ] as const;
+
+const coursework: Array<{ note?: ReactNode; title: string }> = [
+  {
+    note: "γ",
+    title: "PHYS 225: Relativity & Math Applications",
+  },
+  {
+    title: "MATH 347H: Fundamental Mathematics",
+    note: "genuinely changed the way i think",
+  },
+  {
+    title: "MATH 416H: Abstract Linear Algebra",
+    note: "almost no matrices",
+  },
+  {
+    title: "MATH 441: Differential Equations",
+    note: (
+      <>
+        guess e<sup className="relative -top-[0.52em] text-[0.72em]">x</sup>
+      </>
+    ),
+  },
+  {
+    title: "MATH 442: Partial Differential Equations",
+    note: "dirishlay, robahn, noiman",
+  },
+  {
+    title: "MATH 550: Graduate Dynamical Systems",
+    note: "441 + analysis",
+  },
+  {
+    title: "CS 124: Computer Science I",
+    note: "god did? claude did",
+  },
+  {
+    title: "CS 128: Computer Science II",
+    note: "🤠",
+  },
+];
 
 export default function ProjectsPage() {
   return (
@@ -25,36 +61,44 @@ export default function ProjectsPage() {
       <SiteHeader active="projects" />
 
       <section className="px-6 pb-20 pt-28 sm:pt-32">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-3xl">
           <h1 className="text-[14pt] font-light tracking-[-0.02em] text-black/78">
             projects
           </h1>
-          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          <div className="mt-6 space-y-8">
             {projects.map((project) => (
-              <article
-                key={project.title}
-                className="flex h-full flex-col gap-5 rounded-[1.15rem] border border-black/8 bg-white/40 p-5 lg:p-6"
-              >
-                <div className="rounded-[1rem] border border-black/10 bg-[#efe9dc] p-3">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[0.8rem] bg-white/80">
-                    <Image
-                      fill
-                      src={project.image}
-                      alt={project.imageAlt}
-                      className="object-contain object-top"
-                      sizes="(min-width: 1280px) 38rem, (min-width: 1024px) 44vw, 100vw"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h2 className="text-[13pt] font-light tracking-[-0.02em] text-black/78">
+              <article key={project.title}>
+                <h2>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block border-b border-transparent pb-px text-[13pt] font-light tracking-[-0.02em] text-black/78 transition-[border-color,opacity] duration-200 hover:border-black/30 hover:opacity-65 focus-visible:border-black/30 focus-visible:opacity-65 focus-visible:outline-none"
+                  >
                     {project.title}
-                  </h2>
-                  <p className="mt-3 max-w-2xl text-[10pt] font-light leading-[1.65] tracking-[0.02em] text-black/48">
-                    {project.description}
-                  </p>
-                </div>
+                  </a>
+                </h2>
+                <p className="mt-2 max-w-2xl text-[10pt] font-light leading-[1.7] tracking-[0.02em] text-black/48">
+                  {project.description}
+                </p>
               </article>
+            ))}
+          </div>
+
+          <h2 className="mt-14 text-[14pt] font-light tracking-[-0.02em] text-black/78">
+            coursework
+          </h2>
+          <div className="mt-6 space-y-3">
+            {coursework.map((course) => (
+              <p
+                key={course.title}
+                className="max-w-3xl text-[10pt] font-light leading-[1.7] tracking-[0.02em] text-black/68"
+              >
+                <span>{course.title}</span>
+                {course.note ? (
+                  <span className="text-black/40"> {" · "}{course.note}</span>
+                ) : null}
+              </p>
             ))}
           </div>
         </div>

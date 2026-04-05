@@ -11,7 +11,7 @@ export default function ThoughtsPage() {
             thoughts
           </h1>
           <p className="mt-6 max-w-2xl text-[10pt] font-light leading-[1.7] tracking-[0.02em] text-black/48">
-            Notes, essays, and unfinished ideas will live here.
+            to be added
           </p>
         </div>
       </section>

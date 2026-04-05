@@ -5,7 +5,7 @@ type NavId = "about" | "projects" | "thoughts" | "resume";
 
 const navItems: Array<{ href: string; id: NavId; label: string }> = [
   { href: "/", id: "about", label: "about" },
-  { href: "/projects", id: "projects", label: "projects" },
+  { href: "/projects", id: "projects", label: "work" },
   { href: "/thoughts", id: "thoughts", label: "thoughts" },
   { href: resumePdfHref, id: "resume", label: "resume" },
 ];
