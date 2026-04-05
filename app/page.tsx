@@ -96,8 +96,8 @@ function MailIcon() {
       strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <polyline points="2,4 12,13 22,4" />
+      <rect x="2.75" y="4.75" width="18.5" height="14.5" rx="2.25" />
+      <path d="M5.5 8 12 13.1 18.5 8" />
     </svg>
   );
 }
