@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    @font-face {
+      font-family: "Site Mono";
+      src: url("/roboto-mono-basic-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+    }
+  </style>
+  <rect width="64" height="64" fill="#f7f3ea" />
+  <text
+    x="50%"
+    y="50%"
+    fill="#151515"
+    font-family="'Site Mono', monospace"
+    font-size="42"
+    font-weight="400"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >
+    s
+  </text>
+</svg>
