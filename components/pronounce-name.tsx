@@ -1,8 +1,10 @@
 "use client";
 
+import { siteBasePath } from "@/lib/site-paths";
+
 export function PronounceName() {
   const handleClick = () => {
-    new Audio("/pronunciation.mp3").play();
+    new Audio(`${siteBasePath}/pronunciation.mp3`).play();
   };
 
   return (
