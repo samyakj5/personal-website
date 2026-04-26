@@ -18,10 +18,31 @@ const projects = [
   },
 ] as const;
 
+const nextCoursework: Array<{ note?: ReactNode; title: string }> = [
+  {
+    title: "PHYS 325: Classical Mechanics I",
+  },
+  {
+    title: "PHYS 446: Modern Computational Physics",
+  },
+  {
+    title: "ECE 404: Quantum Information Theory",
+  },
+  {
+    title: "MATH 427: Honors Abstract Algebra",
+  },
+  {
+    title: "MATH 558: Methods of Applied Mathematics",
+  },
+  {
+    title: "(hopefully) CS 450: Numerical Analysis", 
+  },
+];
+
 const coursework: Array<{ note?: ReactNode; title: string }> = [
   {
-    note: "γ",
     title: "PHYS 225: Relativity & Math Applications",
+    note: "γ",
   },
   {
     title: "MATH 347H: Fundamental Mathematics",
@@ -44,12 +65,12 @@ const coursework: Array<{ note?: ReactNode; title: string }> = [
     note: "dirishlay, robahn, noiman",
   },
   {
-    title: "MATH 550: Graduate Dynamical Systems",
+    title: "MATH 550: Dynamical Systems I",
     note: "441 + analysis",
   },
   {
     title: "CS 124: Computer Science I",
-    note: "god did? claude did",
+    note: "claude did",
   },
   {
     title: "CS 128: Computer Science II",
@@ -95,6 +116,22 @@ export default function ProjectsPage() {
           </h2>
           <div className="mt-6 space-y-3">
             {coursework.map((course) => (
+              <p
+                key={course.title}
+                className="max-w-3xl text-[10pt] font-light leading-[1.7] tracking-[0.02em] text-black/68"
+              >
+                <span>{course.title}</span>
+                {course.note ? (
+                  <span className="text-black/40"> {" · "}{course.note}</span>
+                ) : null}
+              </p>
+            ))}
+          </div>
+          <h2 className="mt-14 text-[14pt] font-light tracking-[-0.02em] text-black/78">
+            next semester!
+          </h2>
+          <div className="mt-6 space-y-3">
+            {nextCoursework.map((course) => (
               <p
                 key={course.title}
                 className="max-w-3xl text-[10pt] font-light leading-[1.7] tracking-[0.02em] text-black/68"

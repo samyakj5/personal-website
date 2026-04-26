@@ -1,30 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
-
-const pronunciationText = "Samyak Jain";
-
 export function PronounceName() {
-  useEffect(() => {
-    return () => {
-      if (typeof window !== "undefined" && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
-    };
-  }, []);
-
   const handleClick = () => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      return;
-    }
-
-    const utterance = new SpeechSynthesisUtterance(pronunciationText);
-    utterance.lang = "en-US";
-    utterance.pitch = 1;
-    utterance.rate = 0.95;
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
+    new Audio("/pronunciation.mp3").play();
   };
 
   return (
