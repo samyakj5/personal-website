@@ -1,5 +1,6 @@
 import { PronounceName } from "@/components/pronounce-name";
 import { SiteHeader } from "@/components/site-header";
+import { siteBasePath } from "@/lib/site-paths";
 
 const githubHref = "https://github.com/samyakj5";
 const linkedinHref = "https://www.linkedin.com/in/samyak-jain-uiuc/";
@@ -12,7 +13,7 @@ export default function Home() {
 
       <section className="relative flex min-h-screen items-center justify-center px-6">
         <div className="z-10 flex flex-col items-center gap-2">
-          <PronounceName />
+          <PronounceName audioSrc={`${siteBasePath}/pronunciation.mp3`} />
 
           <p className="max-w-xl px-4 text-center text-[10pt] font-light leading-[1.5] tracking-[0.02em] text-black/45">
             quantum hardware · prev. quantum info, particle physics
