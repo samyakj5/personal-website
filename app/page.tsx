@@ -16,7 +16,7 @@ export default function Home() {
           <PronounceName audioSrc={`${siteBasePath}/pronunciation.mp3`} />
 
           <p className="max-w-xl px-4 text-center text-[10pt] font-light leading-[1.5] tracking-[0.02em] text-black/45">
-            quantum hardware · prev. quantum info, particle physics
+            physics-informed ML · quantum hardware <br></br> quantum info · particle physics
           </p>
 
           <div className="mt-3 flex items-center gap-3 text-[#67625b]">

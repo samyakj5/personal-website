@@ -4,9 +4,16 @@ import { SiteHeader } from "@/components/site-header";
 const projects = [
   {
     description:
+      "top 3% project euler problem solver (67 problems solved). current highest difficulty: level 12",
+    href: "https://github.com/samyakj5/projecteuler",
+    stack: "Python",
+    title: "project euler"
+  },
+  {
+    description:
       "entanglement decay in noisy quantum circuits under depolarizing noise. identified evidence for sudden death in few-qubit systems",
     href: "https://github.com/samyakj5/entanglement-sudden-death",
-    stack: "Qiskit, NumPy, Matplotlib",
+    stack: "Python, Qiskit, NumPy",
     title: "entanglement sudden death simulation",
   },
   {
@@ -35,7 +42,7 @@ const nextCoursework: Array<{ note?: ReactNode; title: string }> = [
     title: "MATH 558: Methods of Applied Mathematics",
   },
   {
-    title: "(hopefully) CS 450: Numerical Analysis", 
+    title: "CS 357: Numerical Methods I", 
   },
 ];
 
@@ -128,7 +135,7 @@ export default function ProjectsPage() {
             ))}
           </div>
           <h2 className="mt-14 text-[14pt] font-light tracking-[-0.02em] text-black/78">
-            next semester!
+            next semester
           </h2>
           <div className="mt-6 space-y-3">
             {nextCoursework.map((course) => (
