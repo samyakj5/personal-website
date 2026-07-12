@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 const projects = [
   {
     description:
-      "top 3% project euler problem solver (67 problems solved). current highest difficulty: level 12",
+      "top 2% project euler problem solver (84 problems solved). current highest difficulty: level 10",
     href: "https://github.com/samyakj5/projecteuler",
     stack: "Python",
     title: "project euler"
